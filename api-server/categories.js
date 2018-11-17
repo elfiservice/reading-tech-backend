@@ -42,7 +42,7 @@ function add (token, cat) {
 
     category = {
       name: cat.name,
-      path: pathUnderscored,
+      path: cat.path,
     }
 
     defaultData.categories.push(category);
