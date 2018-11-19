@@ -154,6 +154,19 @@ app.post('/categories', bodyParser.json(), (req, res) => {
       )
 })
 
+app.delete('/categories/:category_path', (req, res) => {
+    categories.remove(req.token, req.params.category_path)
+      .then(
+          (data) => res.send(data),
+          (error) => {
+              console.error(error)
+              res.status(500).send({
+                  error: 'There was an error.'
+              })
+          }
+      )
+})
+
 app.get('/:category/posts', (req, res) => {
     posts.getByCategory(req.token, req.params.category)
       .then(

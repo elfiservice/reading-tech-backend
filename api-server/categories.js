@@ -50,7 +50,18 @@ function add (token, cat) {
   })
 }
 
+function remove (token, categoryPath) {
+  return new Promise((res) => {
+    let defaultData = getData(token)
+
+    const newData = defaultData.categories.filter( categoryDB => categoryDB.path !== categoryPath );
+    defaultData.categories = newData
+    res(defaultData.categories)
+  })
+}
+
 module.exports = {
   getAll,
-  add
+  add,
+  remove
 }
