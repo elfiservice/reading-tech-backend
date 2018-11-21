@@ -167,6 +167,19 @@ app.delete('/categories/:category_path', (req, res) => {
       )
 })
 
+app.put('/categories/:category_path', bodyParser.json(), (req, res) => {
+    categories.edit(req.token, req.params.category_path, req.body)
+      .then(
+        (data) => res.send(data),
+          (error) => {
+              console.error(error)
+              res.status(500).send({
+                  error: 'There was an error.'
+              })
+          }
+      )
+})
+
 app.get('/:category/posts', (req, res) => {
     posts.getByCategory(req.token, req.params.category)
       .then(

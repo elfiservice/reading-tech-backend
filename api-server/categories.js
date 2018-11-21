@@ -60,8 +60,24 @@ function remove (token, categoryPath) {
   })
 }
 
+function edit (token, catPath, categoryEdited) {
+  return new Promise((res) => {
+      let defaultData = getData(token)
+      let categories = defaultData.categories
+      for (let i = 0; i < categories.length; i++) {
+        if(categories[i].path === catPath) {
+          categories[i].name = categoryEdited.name
+          categories[i].path = categoryEdited.path
+        }
+      }
+
+      res(categories)
+  })
+}
+
 module.exports = {
   getAll,
   add,
-  remove
+  remove,
+  edit
 }
