@@ -34,6 +34,19 @@ app.get('/', (req, res) => {
       USAGE:
         Get all of the posts for a particular category
 
+    DELETE /categories/:category_path
+      USAGE:
+        Remove the category selected by category_path
+
+    PUT /categories/:category_path
+      USAGE:
+        Update the a exist category selected by your category_path
+
+    PARAMS:
+        name - new name to the exist category
+        path - new path to the exist category
+  
+
     GET /posts
       USAGE:
         Get all of the posts. Useful for the main page when no category is selected.

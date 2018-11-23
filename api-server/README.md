@@ -33,6 +33,8 @@ The following endpoints are available:
 |-----------------|----------------|----------------|
 | `GET /categories` | Get all of the categories available for the app. List is found in `categories.js`. Feel free to extend this list as you desire. |  |
 | `GET /:category/posts` | Get all of the posts for a particular category. |  |
+| `DELETE /categories/:category_path` | Remove a selected Category. |  |
+| `PUT /categories/:category_path` | Edit a selected Category. | ``category_path`` is like a ID. Pass the ``category_path`` from currently category and as a second argument (body of request) the new category object like ``{ name: new name, path: new path }`` |
 | `GET /posts` | Get all of the posts. Useful for the main page when no category is selected. |  |
 | `POST /posts` | Add a new post. | **id** - UUID should be fine, but any unique id will work <br> **timestamp** - [Timestamp] Can in whatever format you like, you can use `Date.now()` if you like. <br> **title** - [String] <br> **body** - [String] <br> **author** - [String] <br> **category** -  Any of the categories listed in `categories.js`. Feel free to extend this list as you desire. |
 | `GET /posts/:id` | Get the details of a single post. | |
